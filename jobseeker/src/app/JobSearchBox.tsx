@@ -4,7 +4,10 @@ import RangeSlider from '../client/RangeSlider';
 import PraxSwitch from '@/client/PraxSwitch';
 import CityDropdown from '@/client/CityDropdown';
 import MinEduSelect from '@/client/MinEduSelect';
-import { Fieldset, Label, Field, Input } from '@headlessui/react';
+import JobTypeGroup from '@/client/JobTypeGroup';
+import { Fieldset, Label, Field, Input, Button } from '@headlessui/react';
+import RemoteSwitch from '@/client/RemoteSwitch';
+import Link from 'next/link';
 const JobSearchBox: React.FC = () => {
     return (
         <Fieldset className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md flex flex-col gap-4">
@@ -41,19 +44,20 @@ const JobSearchBox: React.FC = () => {
                     </div>
                 </Field>
             </div>
-            <PraxSwitch />
-            <div className='mb-4'></div>
-                        <RangeSlider/>
+            <div className='flex gap-2 justify-between'> 
+                <PraxSwitch />
+                <RemoteSwitch />
+            </div>
+            <RangeSlider/>
             <Field>
             <Label className="block text-sm/6 font-medium text-black">Najvyššie dosiahnuté vzdelanie</Label>
             <MinEduSelect />   
-            
             </Field>
-            <button
-                className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors"
+            <JobTypeGroup />
+            <Link href="/jobslist" 
             >
-                Hľadať ponuky
-            </button>
+                <Button type='button' className="w-full text-center items-center transition gap-2 rounded-md bg-blue-700 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-blue-400 data-open:bg-gray-700">Hľadať ponuky</Button>
+            </Link>
         </Fieldset>
     );
 };

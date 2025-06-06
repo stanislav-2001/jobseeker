@@ -29,7 +29,12 @@ export default function RootLayout({
     <html lang="en">
 
       <body>
-        <JobSearchBox />
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-100">
+      <main className="flex flex-col items-center justify-center min-h-screen">
+                {children}
+
+      </main>
+    </div>
       </body>
             <PrelineScriptWrapper />
 

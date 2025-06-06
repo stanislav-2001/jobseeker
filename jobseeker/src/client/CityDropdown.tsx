@@ -13,7 +13,7 @@ const people = [
 
 export default function CityDropdown() {
   const [query, setQuery] = useState('')
-  const [selected, setSelected] = useState(people[1])
+  const [selected, setSelected] = useState(null)
 
   const filteredPeople =
     query === ''
@@ -31,7 +31,7 @@ export default function CityDropdown() {
               'w-full rounded-lg border-1 border-gray-300 bg-white py-1.5 pr-8 pl-3 text-sm/6 text-black',
               'focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25'
             )}
-            placeholder="Lokalita"
+            placeholder="napr. Bratislava"
             displayValue={(person) => person?.name}
             onChange={(event) => setQuery(event.target.value)}
           />

@@ -3,14 +3,14 @@ import React from 'react';
 import clsx from 'clsx';
 
 const MinEduSelect: React.FC = () => {
-    let vzdelanie = [
-        "Základné",
-        "Stredné bez maturity",
-        "Stredné s maturitou",
-        "Vyššie odborné",
-        "Vysokoškolské I. stupňa",
-        "Vysokoškolské II. stupňa",
-        "Vysokoškolské III. stupňa",
+    const vzdelanie = [
+        { id: "zakladne", name: "Základné" },
+        { id: "stredne_bez_maturity", name: "Stredné bez maturity" },
+        { id: "stredne_s_maturitou", name: "Stredné s maturitou" },
+        { id: "vyssie_odborne", name: "Vyššie odborné" },
+        { id: "vs_i_stupen", name: "Vysokoškolské I. stupňa" },
+        { id: "vs_ii_stupen", name: "Vysokoškolské II. stupňa" },
+        { id: "vs_iii_stupen", name: "Vysokoškolské III. stupňa" },
     ];
     return (
         <div className="relative">
@@ -19,9 +19,9 @@ const MinEduSelect: React.FC = () => {
               'focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25',
               '*:text-black'
             )}>
-                { vzdelanie.map((edu, index) => (
-                    <option key={index} value={edu} defaultChecked={index === 5}>
-                        {edu}
+                { vzdelanie.map((edu) => (
+                    <option key={edu.id} value={edu.id} selected={edu.id === 'vs_ii_stupen'}>
+                        {edu.name}
                     </option>
                 )) }
             </Select>
