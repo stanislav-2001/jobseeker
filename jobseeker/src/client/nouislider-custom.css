@@ -1,148 +1,101 @@
-/* Base styling */
+/* === Tailwind-based overrides for noUiSlider === */
+
+/* Track */
 .noUi-target {
-  position: relative;
   height: 0.5rem; /* h-2 */
-  margin-bottom: 2.5rem; /* mb-10 */
-  border-radius: 9999px; /* rounded-full */
   background-color: #f3f4f6; /* bg-gray-100 */
-   -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-user-select: none;
-  -ms-touch-action: none;
-  touch-action: none;
-  -ms-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  border: none;
+  border-radius: 9999px; /* rounded-full */
+  box-shadow: none;
+}
+@media (prefers-color-scheme: dark) {
+  .noUi-target {
+    background-color: #3f3f46; /* dark:bg-neutral-700 */
+  }
 }
 
-.dark .noUi-target {
-  background-color: #3f3f46; /* dark:bg-neutral-700 */
-}
-
-.noUi-base {
-  position: relative;
-  width: 100%;
+/* Container layers */
+.noUi-base,
+.noUi-connects {
   z-index: 1;
 }
 
-.noUi-origin {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 9999px;
-    -ms-transform-origin: 0 0;
-  -webkit-transform-origin: 0 0;
-  -webkit-transform-style: preserve-3d;
-  transform-origin: 0 0;
-  transform-style: flat;
-}
-
-.noUi-handle {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: 1.125rem; /* 18px */
-  height: 1.125rem;
-  background-color: white;
-  border: 4px solid #2563eb; /* border-blue-600 */
-  border-radius: 9999px;
-  cursor: pointer;
-  transform: translate(50%, -50%);
-}
-
-.dark .noUi-handle {
-  border-color: #3b82f6; /* dark:border-blue-500 */
-}
-
+/* Base for connect/background */
 .noUi-connects {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
   border-radius: 9999px;
+  overflow: hidden;
   z-index: 0;
 }
 
+/* Fill portion */
 .noUi-connect {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: #2563eb;
-  z-index: 1;
-    -ms-transform-origin: 0 0;
-  -webkit-transform-origin: 0 0;
-  -webkit-transform-style: preserve-3d;
+  background-color: #2563eb; /* bg-blue-600 */
+  border-radius: 0;
+}
+@media (prefers-color-scheme: dark) {
+  .noUi-connect {
+    background-color: #3b82f6; /* dark:bg-blue-500 */
+  }
+}
+
+/* Slider "origin" wrapper */
+.noUi-origin {
+  border-radius: 9999px;
   transform-origin: 0 0;
-  transform-style: flat;
 }
 
-.dark .noUi-connect {
-  background: #3b82f6;
+/* Slider handle */
+.noUi-handle {
+  width: 1.125rem;  /* 4.5 * 0.25rem */
+  height: 1.125rem;
+  background-color: #ffffff;
+  border: 0.25rem solid #2563eb; /* border-4 border-blue-600 */
+  border-radius: 9999px;
+  cursor: pointer;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+  box-shadow: none;
+}
+@media (prefers-color-scheme: dark) {
+  .noUi-handle {
+    border-color: #3b82f6; /* dark:border-blue-500 */
+  }
 }
 
+.noUi-horizontal .noUi-handle {
+  width: 20px !important;
+  height: 20px !important;
+  right: 0 !important;
+  top: 3px !important;
+}
+
+/* Remove handle stripes */
+.noUi-handle:before,
+.noUi-handle:after {
+  display: none;
+}
+
+/* Touch area (expanded clickable space) */
 .noUi-touch-area {
   position: absolute;
-  inset: -0.25rem; /* -inset-1 */
+  top: -0.25rem;   /* -inset-1 = -4px */
+  right: -0.25rem;
+  bottom: -0.25rem;
+  left: -0.25rem;
 }
 
-.noUi-tooltip {
-  background-color: white;
-  border: 1px solid #e5e7eb; /* border-gray-200 */
-  font-size: 0.875rem; /* text-sm */
-  color: #1f2937; /* text-gray-800 */
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.5rem;
-  margin-bottom: 0.75rem;
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+/* Active handle visual (optional, can match Tailwind ring) */
+.noUi-active {
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.3); /* optional ring effect */
 }
 
-.dark .noUi-tooltip {
-  background-color: #1f2937; /* dark:bg-neutral-800 */
-  border-color: #374151; /* dark:border-neutral-700 */
-  color: white;
+/* Disabled state */
+[disabled] .noUi-connect {
+  background: #9ca3af; /* Tailwind gray-400 */
 }
-
-.noUi-pips {
-  position: relative;
-  width: 100%;
-  height: 2.5rem; /* h-10 */
-  margin-top: 0.25rem; /* mt-1 */
-}
-
-.noUi-value {
-  position: absolute;
-  top: 1rem;
-  transform: translateX(-50%);
-  font-size: 0.875rem;
-  color: #9ca3af;
-}
-
-.dark .noUi-value {
-  color: #6b7280;
-}
-
-.noUi-marker {
-  position: absolute;
-  border-left: 1px solid #9ca3af;
-}
-
-.dark .noUi-marker {
-  border-color: #6b7280;
-}
-
-.noUi-marker-normal {
-  height: 0.5rem;
-}
-
-.noUi-marker-large {
-  height: 1rem;
+[disabled].noUi-target,
+[disabled] .noUi-handle {
+  cursor: not-allowed;
+  opacity: 0.6;
 }

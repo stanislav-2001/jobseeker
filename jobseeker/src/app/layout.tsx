@@ -27,7 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta charSet="UTF-8" />
+      </head>
       <body>
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-100">
       <main className="flex flex-col items-center justify-center min-h-screen">
