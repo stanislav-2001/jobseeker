@@ -1,7 +1,5 @@
-"use client";
-
-import { useMemo } from "react";
-import { useSearchParams } from "next/navigation";
+import React from 'react';
+import { JobCardModel } from './JobCardModel';
 import {
   BuildingOffice2Icon,
   MapPinIcon,
@@ -10,49 +8,9 @@ import {
   ClockIcon
 } from "@heroicons/react/24/outline";
 
-export default function Jobslist() {
-  const searchParams = useSearchParams();
-
-  const mockJobs = [
-  {
-    id: 1,
-    title: "Frontend Developer",
-    company: "Tech Solutions",
-    location: "Bratislava",
-    salary: "1500 - 2000 €",
-    type: "Plný úväzok",
-    remote: true,
-  },
-  {
-    id: 2,
-    title: "Backend Engineer",
-    company: "DataCorp",
-    location: "Košice",
-    salary: "1800 - 2500 €",
-    type: "Čiastočný úväzok",
-    remote: false,
-  },
-];
-  // Parse the JobSearchFormData from URL
-  const jobSearchData = useMemo(() => {
-    const obj: Record<string, any> = {};
-    for (const [key, value] of searchParams.entries()) {
-      try {
-        // Try to parse arrays/objects (e.g., jobTypes, salaryRange)
-        obj[key] = JSON.parse(value);
-      } catch {
-        obj[key] = value;
-      }
-    }
-    return obj;
-  }, [searchParams]);
-
-  return (
-    <div className="max-w-2xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-md flex flex-col gap-6">
-      <h1 className="text-2xl font-bold mb-4">Zoznam pracovných ponúk</h1>
-      <div className="flex flex-col gap-4">
-        {mockJobs.map((job) => (
-          <div
+const JobCard: React.FC<JobCardModel> = (job: JobCardModel) => {
+    return (
+        <div
             key={job.id}
             className="rounded-lg border border-gray-300 p-4 flex flex-col gap-2 bg-white hover:bg-gray-100 hover:cursor-pointer hover:border-gray-100 transition"
           >
@@ -78,8 +36,7 @@ export default function Jobslist() {
             </div>
             
           </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+    );
+};
+
+export default JobCard;

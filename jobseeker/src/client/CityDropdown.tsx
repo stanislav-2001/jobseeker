@@ -11,9 +11,13 @@ const people = [
   { id: 5, name: 'Devon Webb' },
 ]
 
-export default function CityDropdown() {
+interface CityDropdownProps {
+  value: string
+  handleInputChange: (field: string, value: any) => void
+}
+
+const CityDropdown: React.FC<CityDropdownProps> = ({ value, handleInputChange }) => {
   const [query, setQuery] = useState('')
-  const [selected, setSelected] = useState(null)
 
   const filteredPeople =
     query === ''
@@ -24,7 +28,7 @@ export default function CityDropdown() {
 
   return (
     <div className="mx-auto w-70">
-      <Combobox value={selected} onChange={(value) => setSelected(value)} onClose={() => setQuery('')}>
+      <Combobox value={value} onChange={(value) => handleInputChange('city', value)} onClose={() => setQuery('')}>
         <div className="relative">
           <ComboboxInput
             className={clsx(
@@ -44,7 +48,7 @@ export default function CityDropdown() {
           anchor="bottom"
           transition
           className={clsx(
-            'w-(--input-width) rounded-xl border border-white/5 bg-black/95 p-1 [--anchor-gap:--spacing(1)] empty:invisible',
+            'z-2 w-(--input-width) rounded-xl border border-white/5 bg-black/95 p-1 [--anchor-gap:--spacing(1)] empty:invisible',
             'transition duration-100 ease-in data-leave:data-closed:opacity-0'
           )}
         >
@@ -63,3 +67,5 @@ export default function CityDropdown() {
     </div>
   )
 }
+
+export default CityDropdown
