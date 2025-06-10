@@ -2,10 +2,12 @@ import { Label, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/
 import { GlobeAltIcon } from '@heroicons/react/24/outline'
 import { SocialIcon } from 'react-social-icons'
 import AboutTab from './AboutTab'
+import JobCard from '@/client/JobCard'
+import { JobCardModel } from '@/client/JobCardModel'
 
 const categories = [
   {
-    name: 'Aktuálne ponuky',
+    name: 'O spoločnosti',
     posts: [
       {
         id: 1,
@@ -24,7 +26,7 @@ const categories = [
     ],
   },
   {
-    name: 'Ukončené ponuky',
+    name: 'Aktuálne ponuky',
     posts: [
       {
         id: 1,
@@ -43,7 +45,7 @@ const categories = [
     ],
   },
   {
-    name: 'O spoločnosti',
+    name: 'Ukončené ponuky',
     posts: [
       {
         id: 1,
@@ -62,6 +64,27 @@ const categories = [
     ],
   },
 ]
+
+const mockJobs: JobCardModel[] = [
+    {
+      id: 1,
+      title: "Frontend Developer",
+      company: "Tech Solutions",
+      location: "Bratislava",
+      salary: "1500 - 2000 €",
+      type: "Plný úväzok",
+      remote: true,
+    },
+    {
+      id: 2,
+      title: "Backend Engineer",
+      company: "DataCorp",
+      location: "Košice",
+      salary: "1800 - 2500 €",
+      type: "Čiastočný úväzok",
+      remote: false,
+    },
+  ];
 
 export default function CompanyTabs() {
   return (
@@ -84,23 +107,11 @@ export default function CompanyTabs() {
             </TabPanel>
             {categories.map(({ name, posts }) => (
               <TabPanel key={name} className="rounded-xl bg-white/5 p-3">
-                <ul>
-                  {posts.map((post) => (
-                    <li key={post.id} className="relative rounded-md p-3 text-sm/6 transition hover:bg-white/5">
-                      <a href="#" className="font-semibold text-white">
-                        <span className="absolute inset-0" />
-                        {post.title}
-                      </a>
-                      <ul className="flex gap-2 text-white/50" aria-hidden="true">
-                        <li>{post.date}</li>
-                        <li aria-hidden="true">&middot;</li>
-                        <li>{post.commentCount} comments</li>
-                        <li aria-hidden="true">&middot;</li>
-                        <li>{post.shareCount} shares</li>
-                      </ul>
-                    </li>
+                <div className="flex flex-col gap-4">
+                  {mockJobs.map((job: JobCardModel) => (
+                      <JobCard job={job} key={job.id} />
                   ))}
-                </ul>
+                </div>
               </TabPanel>
             ))}
           </TabPanels>

@@ -26,7 +26,6 @@ const EmployerPage: React.FC = () => {
             </div>
             <hr className="my-2 w-full border-gray-300" />
             <CompanyTabs />
-
         </main>
     );
 };

@@ -1,8 +1,9 @@
 export type JobCardModel = {
-  id: string;
+  id: number;
   title: string;
   company: string;
   location: string;
   salary: string;
+  type: string;
   remote?: boolean;
 };

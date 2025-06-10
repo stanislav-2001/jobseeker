@@ -15,7 +15,7 @@ const AboutTab: React.FC = () => {
                     Podporujeme profesionálny rast, vzdelávanie a otvorenú komunikáciu na všetkých úrovniach.
                     Veríme, že úspech firmy je postavený na spokojnosti a motivácii našich zamestnancov, ktorých považujeme za najcennejšie aktívum.
                 </p>
-                <p className="text-sm/6 text-gray-500">
+                <p className="text-sm/6 text-gray-500 pt-4">
                     Počet zamestnancov: 150
                 </p>
             </div>
