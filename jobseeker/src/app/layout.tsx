@@ -33,10 +33,23 @@ export default function RootLayout({
       </head>
       <body>
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-100">
-      <main className="flex flex-col items-center justify-center min-h-screen">
-                {children}
+          <header className="w-full bg-gradient-to-r fixed from-blue-700 via-blue-500 to-blue-400 shadow">
+            <div className="max-w-6xl mx-auto px-6 py-4 flex items-center">
+              <a href="/" className="flex items-center">
+              <span
+                className="text-2xl font-extrabold tracking-tight text-white drop-shadow-md"
+                style={{ fontFamily: "'Geist', 'Segoe UI', Arial, sans-serif" }}
+              >
+                Job
+                <span className="text-blue-200">seeker</span>
+              </span>
+              </a>
+            </div>
+          </header>
+          <main className="flex px-2 flex-col items-center min-h-screen pt-20">
+                    {children}
 
-      </main>
+          </main>
     </div>
       </body>
             <PrelineScriptWrapper />

@@ -5,7 +5,7 @@ import { EnvelopeIcon } from '@heroicons/react/20/solid';
 
 const AboutTab: React.FC = () => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 bg-white/5 p-6 text-black">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 bg-white/5 p-6 text-black">
             <div className="col-span-2 max-w-prose">
                 <p className='text-sm/6'>
                     Naša spoločnosť je lídrom v oblasti inovácií a poskytuje kvalitné služby zákazníkom už viac ako 10 rokov.
@@ -19,7 +19,7 @@ const AboutTab: React.FC = () => {
                     Počet zamestnancov: 150
                 </p>
             </div>
-            <div className="border-t md:border-t-0 md:border-l border-gray-200 pt-6 md:pt-0 md:pl-6 flex flex-col gap-2">
+            <div className="border-t lg:border-t-0 lg:border-l border-gray-200 pt-6 lg:pt-0 lg:pl-6 flex flex-col gap-2">
                 <p className='pb-4 font-semibold'>Kontakt</p>
                 <div className="flex items-center gap-2">
                     <GlobeAltIcon className="h-5 w-5 text-blue-500" aria-hidden="true" />

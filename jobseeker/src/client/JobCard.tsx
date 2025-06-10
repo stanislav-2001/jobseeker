@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import { JobCardModel } from './JobCardModel';
 import {
@@ -7,15 +9,36 @@ import {
   GlobeAltIcon,
   ClockIcon
 } from "@heroicons/react/24/outline";
+import { useRouter } from 'next/navigation';
+import { Button } from '@headlessui/react';
 
 type JobCardProps = {
   job: JobCardModel;
 };
 
+
+
 const JobCard: React.FC<JobCardProps> = ({ job }) => {
   console.log("JobCard props:", job);
+
+  const router = useRouter();
+
+  const handleSearch = () => {
+    const params = new URLSearchParams();
+    /*Object.entries(formData).forEach(([key, value]) => {
+        if (Array.isArray(value)) {
+            params.append(key, JSON.stringify(value));
+        } else {
+            params.append(key, String(value));
+        }
+    });*/
+    console.log("JobCard handleSearch params:", params);
+    router.push(`/job?${params.toString()}`);
+  };
   return (
-    <div
+    <button
+      onClick={handleSearch}
+      type='button'
       key={job.id}
       className="rounded-lg border border-gray-300 p-4 flex flex-col gap-2 bg-white hover:bg-gray-100 hover:cursor-pointer hover:border-gray-100 transition"
     >
@@ -39,10 +62,10 @@ const JobCard: React.FC<JobCardProps> = ({ job }) => {
         )}
         <span className="ml-auto flex items-center gap-1 text-xs text-gray-400">
           <ClockIcon className="w-4 h-4" />
-          2 hours ago
+          3 hours ago
         </span>
       </div>
-    </div>
+    </button>
   );
 };
 

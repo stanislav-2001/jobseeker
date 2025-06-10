@@ -56,7 +56,7 @@ const JobSearchBox: React.FC = () => {
     };
 
     return (
-        <Fieldset className="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md flex flex-col gap-4">
+        <Fieldset className="sm:max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md flex flex-col gap-4">
             <Field>
                 <Label className="block text-sm/6 font-medium text-black">Pozícia, kľúčové slovo</Label>
                 <Input

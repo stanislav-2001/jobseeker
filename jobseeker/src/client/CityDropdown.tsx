@@ -27,7 +27,7 @@ const CityDropdown: React.FC<CityDropdownProps> = ({ value, handleInputChange })
         })
 
   return (
-    <div className="mx-auto w-70">
+    <div className="mx-auto">
       <Combobox value={value} onChange={(value) => handleInputChange('city', value)} onClose={() => setQuery('')}>
         <div className="relative">
           <ComboboxInput
