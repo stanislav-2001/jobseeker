@@ -3,11 +3,23 @@ import React, { useCallback, useState } from 'react';
 import RangeSlider from '../client/RangeSlider';
 import PraxSwitch from '@/client/PraxSwitch';
 import CityDropdown from '@/client/CityDropdown';
-import MinEduSelect from '@/client/MinEduSelect';
+import MinEduSelect from '@/client/MySelect';
 import JobTypeGroup from '@/client/JobTypeGroup';
 import { Fieldset, Label, Field, Input, Button } from '@headlessui/react';
 import RemoteSwitch from '@/client/RemoteSwitch';
 import { useRouter } from 'next/navigation';
+import MySelect from '@/client/MySelect';
+import { SelectOption } from '@/client/MySelect';
+
+const vzdelanie: SelectOption[] = [
+        { id: "zakladne", name: "Základné" },
+        { id: "stredne_bez_maturity", name: "Stredné bez maturity" },
+        { id: "stredne_s_maturitou", name: "Stredné s maturitou" },
+        { id: "vyssie_odborne", name: "Vyššie odborné" },
+        { id: "vs_i_stupen", name: "Vysokoškolské I. stupňa" },
+        { id: "vs_ii_stupen", name: "Vysokoškolské II. stupňa" },
+        { id: "vs_iii_stupen", name: "Vysokoškolské III. stupňa" },
+];
 
 const JobSearchBox: React.FC = () => {
 
@@ -71,11 +83,11 @@ const JobSearchBox: React.FC = () => {
                 />
             </Field>
             <div className='flex gap-2'>
-                <Field>
+                <Field className='flex-7'>
                     <Label className="block text-sm/6 font-medium text-black">Lokalita</Label>
                     <CityDropdown value={formData.city} handleInputChange={handleInputChange}></CityDropdown>
                 </Field>
-                <Field>
+                <Field className="flex-3">
                     <Label className="block text-sm/6 font-medium text-black">Vzdialenosť</Label>
                     <div className='flex items-center gap-2'>
                     <Input
@@ -100,7 +112,7 @@ const JobSearchBox: React.FC = () => {
             <RangeSlider value={formData.salaryRange} onValueChange={handleInputChange}/>
             <Field>
             <Label className="block text-sm/6 font-medium text-black">Najvyššie dosiahnuté vzdelanie</Label>
-            <MinEduSelect />   
+            <MySelect options={vzdelanie} selected={formData.minEducation} onChange={(value) => handleInputChange("minEducation", value) } />   
             </Field>
             <JobTypeGroup value={formData.jobTypes} onChange={handleInputChange}/>
             <Button onClick={handleSearch} type='button' className="w-full text-center items-center transition gap-2 rounded-md bg-blue-700 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-blue-400 data-open:bg-gray-700">Hľadať ponuky</Button>

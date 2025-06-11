@@ -32,7 +32,7 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
       </head>
       <body>
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-100">
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
           <header className="w-full bg-gradient-to-r fixed from-blue-700 via-blue-500 to-blue-400 shadow">
             <div className="max-w-6xl mx-auto px-6 py-4 flex items-center">
               <a href="/" className="flex items-center">

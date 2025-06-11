@@ -95,7 +95,7 @@ export default function CompanyTabs() {
             {categories.map(({ name }) => (
               <Tab
                 key={name}
-                className="rounded-full transition-colors px-3 py-1 text-sm/6 font-semibold text-black focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-gray-100 data-selected:bg-lime-200"
+                className="rounded-full transition-colors px-3 py-1 text-sm/6 font-semibold text-black focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-gray-100 data-selected:bg-blue-200"
               >
                 {name}
               </Tab>

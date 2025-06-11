@@ -28,7 +28,7 @@ const JobPage = () => {
 
 
     return (
-        <main className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md flex flex-col gap-4 min-h-[60vh]">
+        <main className="max-w-2xl mx-auto mb-2 p-6 bg-white rounded-lg shadow-md flex flex-col gap-4 min-h-[60vh]">
             <div className="flex items-start justify-between">
                 <h1 className="text-3xl font-bold">Predavač</h1>
                 <button className="bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition-colors text-sm font-semibold">
