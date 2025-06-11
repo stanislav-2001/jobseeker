@@ -1,3 +1,4 @@
+import { JobSearchFormData } from '@/app/JobSearchBox'
 import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 import clsx from 'clsx'
@@ -11,9 +12,14 @@ const people = [
   { id: 5, name: 'Devon Webb' },
 ]
 
+interface Person {
+  id: number,
+  name: string
+}
+
 interface CityDropdownProps {
   value: string
-  handleInputChange: (field: string, value: any) => void
+  handleInputChange: (name: keyof JobSearchFormData, value: string) => void
 }
 
 const CityDropdown: React.FC<CityDropdownProps> = ({ value, handleInputChange }) => {
@@ -28,7 +34,7 @@ const CityDropdown: React.FC<CityDropdownProps> = ({ value, handleInputChange })
 
   return (
     <div className="mx-auto">
-      <Combobox value={value} onChange={(value) => handleInputChange('city', value)} onClose={() => setQuery('')}>
+      <Combobox value={value} onChange={(value) => value && handleInputChange('city', value)} onClose={() => setQuery('')}>
         <div className="relative">
           <ComboboxInput
             className={clsx(
@@ -36,7 +42,7 @@ const CityDropdown: React.FC<CityDropdownProps> = ({ value, handleInputChange })
               'focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25'
             )}
             placeholder="napr. Bratislava"
-            displayValue={(person) => person?.name}
+            displayValue={(person: Person) => person.name}
             onChange={(event) => setQuery(event.target.value)}
           />
           <ComboboxButton className="group absolute inset-y-0 right-0 px-2.5">
@@ -55,7 +61,7 @@ const CityDropdown: React.FC<CityDropdownProps> = ({ value, handleInputChange })
           {filteredPeople.map((person) => (
             <ComboboxOption
               key={person.id}
-              value={person}
+              value={person.id}
               className="group flex cursor-default items-center gap-2 rounded-lg px-3 py-1.5 select-none data-focus:bg-white/10"
             >
               <CheckIcon className="invisible size-4 fill-white group-data-selected:visible" />

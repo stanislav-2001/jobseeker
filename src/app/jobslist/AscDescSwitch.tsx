@@ -1,4 +1,4 @@
-import { Checkbox, Label, Select, RadioGroup, Field, Radio } from '@headlessui/react';
+import { RadioGroup, Radio } from '@headlessui/react';
 import React from 'react';
 import clsx from 'clsx';
 
@@ -8,16 +8,6 @@ interface AscDescSwitchProps {
 }
 
 const AscDescSwitch: React.FC<AscDescSwitchProps> = ({selected, onChange}) => {
-    const vzdelanie = [
-        { id: "zakladne", name: "Základné" },
-        { id: "stredne_bez_maturity", name: "Stredné bez maturity" },
-        { id: "stredne_s_maturitou", name: "Stredné s maturitou" },
-        { id: "vyssie_odborne", name: "Vyššie odborné" },
-        { id: "vs_i_stupen", name: "Vysokoškolské I. stupňa" },
-        { id: "vs_ii_stupen", name: "Vysokoškolské II. stupňa" },
-        { id: "vs_iii_stupen", name: "Vysokoškolské III. stupňa" },
-    ];
-
     return (
         <RadioGroup value={selected} onChange={onChange} aria-label="Server size">
             <div className='flex h-9.5'>

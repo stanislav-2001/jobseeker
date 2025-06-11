@@ -1,7 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 
 import JobCard from "@/client/JobCard";
 import MySelect, { SelectOption } from "@/client/MySelect";
@@ -15,7 +14,6 @@ const orderOptions: SelectOption[] = [
 ]
 
 export default function Jobslist() {
-  const searchParams = useSearchParams();
 
   const [orderByState, setOrderByState] = useState<[string, string]>(["plat", "desc"]);
 
@@ -49,21 +47,6 @@ export default function Jobslist() {
       remote: false,
     },
   ];
-  // Parse the JobSearchFormData from URL
-  const jobSearchData = useMemo(() => {
-    const obj: Record<string, any> = {};
-    for (const [key, value] of searchParams.entries()) {
-      try {
-        // Try to parse arrays/objects (e.g., jobTypes, salaryRange)
-        obj[key] = JSON.parse(value);
-      } catch {
-        obj[key] = value;
-      }
-    }
-    return obj;
-  }, [searchParams]);
-
-
 
   return (
     <div className="max-w-2xl mb-2 mx-auto w-full sm:w-2/3 p-6 bg-white rounded-lg shadow-md flex flex-col gap-6">

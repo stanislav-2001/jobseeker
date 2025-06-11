@@ -1,8 +1,7 @@
 "use client";
 
 import React from 'react';
-import { StarIcon } from '@heroicons/react/24/solid';
-import { BuildingOffice2Icon, CurrencyEuroIcon, BriefcaseIcon, MapPinIcon,
+import { BuildingOffice2Icon, MapPinIcon,
     EnvelopeIcon, PhoneIcon
  } from '@heroicons/react/24/outline';
  import { Button } from '@headlessui/react';    

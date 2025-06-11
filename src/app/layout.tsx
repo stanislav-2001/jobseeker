@@ -1,19 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
-import "./globals.css";
+import Link from "next/link";
 import PrelineScriptWrapper from "@/components/PrelineScriptWrapper";
-import JobSearchBox from "./JobSearchBox";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -35,7 +23,7 @@ export default function RootLayout({
         <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
           <header className="w-full bg-gradient-to-r fixed from-blue-700 via-blue-500 to-blue-400 shadow">
             <div className="max-w-6xl mx-auto px-6 py-4 flex items-center">
-              <a href="/" className="flex items-center">
+              <Link href="/" className="flex items-center">
               <span
                 className="text-2xl font-extrabold tracking-tight text-white drop-shadow-md"
                 style={{ fontFamily: "'Geist', 'Segoe UI', Arial, sans-serif" }}
@@ -43,7 +31,7 @@ export default function RootLayout({
                 Job
                 <span className="text-blue-200">seeker</span>
               </span>
-              </a>
+              </Link>
             </div>
           </header>
           <main className="flex px-2 flex-col items-center min-h-screen pt-20">
@@ -51,8 +39,9 @@ export default function RootLayout({
 
           </main>
     </div>
+                <PrelineScriptWrapper />
+
       </body>
-            <PrelineScriptWrapper />
 
     </html>
   );

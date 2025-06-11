@@ -2,12 +2,13 @@ import React from 'react';
 import { MapPinIcon } from '@heroicons/react/24/outline';
 import CompanyTabs from './CompanyTabs';
 import { StarIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
 
 const EmployerPage: React.FC = () => {
     return (
         <main className="flex flex-col min-h-[60vh] mb-2 sm:w-2/3 w-full mx-2 bg-white rounded-xl shadow-md">
             <div className="flex items-center p-6">
-                <img
+                <Image
                     src="https://logo.clearbit.com/example.com"
                     alt="Profile"
                     className="w-30 h-30 aspect-square rounded-full object-cover mr-8 border-4 border-gray-200"

@@ -5,12 +5,9 @@ import { JobCardModel } from './JobCardModel';
 import {
   BuildingOffice2Icon,
   MapPinIcon,
-  CurrencyEuroIcon,
-  GlobeAltIcon,
   ClockIcon
 } from "@heroicons/react/24/outline";
 import { useRouter } from 'next/navigation';
-import { Button } from '@headlessui/react';
 
 type JobCardProps = {
   job: JobCardModel;

@@ -1,4 +1,4 @@
-import { Checkbox, Label, Select } from '@headlessui/react';
+import { Select } from '@headlessui/react';
 import React from 'react';
 import clsx from 'clsx';
 

@@ -1,13 +1,14 @@
+import { JobSearchFormData } from '@/app/JobSearchBox';
 import { Checkbox, Fieldset, Label, Field } from '@headlessui/react';
 import React from 'react';
 
 interface JobTypeGroupProps {
   value: string[];
-  onChange: (name: string, value: string[]) => void;
+  onChange: (name: keyof JobSearchFormData, value: string[]) => void;
 }
 
 const JobTypeGroup: React.FC<JobTypeGroupProps> = ({value, onChange}) => {
-    let jobTypes = [
+    const jobTypes = [
         { id: 'full-time', label: 'Plný úväzok' },
         { id: 'part-time', label: 'Čiastočný úväzok' },
         { id: 'freelance', label: 'Živnosť' },

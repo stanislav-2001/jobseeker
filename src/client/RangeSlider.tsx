@@ -1,20 +1,24 @@
 import { useRef, useEffect, useState } from 'react';
-import noUiSlider from 'nouislider';
+import noUiSlider, { API as noUiSliderAPI } from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 import { Label } from '@headlessui/react';
 import './nouislider-custom.css'; // Custom styles for noUiSlider
+import { JobSearchFormData } from '@/app/JobSearchBox';
 
 
 interface RangeSliderProps {
     value: [number, number];
-    onValueChange: (name: string, value: [number, number]) => void;
-  }
+    onValueChange: (name: keyof JobSearchFormData, value: [number, number]) => void;
+}
+
+type NoUiSliderElement = HTMLDivElement & { noUiSlider?: noUiSliderAPI };
 
 const RangeSlider: React.FC<RangeSliderProps> = ({ value, onValueChange }) => {
-    const sliderRef = useRef<any>(null);
-
+    const sliderRef = useRef<NoUiSliderElement>(null);
+    
     const [sliderValue, setSliderValue] = useState<[number, number]>(value);
   useEffect(() => {
+
     if (!sliderRef.current) return;
 
     const rangeSliderConfig = {
@@ -36,12 +40,12 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ value, onValueChange }) => {
 
     //pre optimal performance, we should only update the slider if the value has changed
 
-    sliderRef.current.noUiSlider.on('update', (values: any) => {
-        setSliderValue([values[0], values[1]]);
+    sliderRef.current?.noUiSlider?.on('update', (values: (number | string)[]) => {
+        setSliderValue([Number(values[0]), Number(values[1])]);
     });
 
-    sliderRef.current.noUiSlider.on('change', (values: any) => {
-        onValueChange('salaryRange', [rangeSliderConfig.format.from(values[0]), rangeSliderConfig.format.from(values[1])]);
+    sliderRef.current.noUiSlider?.on('change', (values: (number | string)[]) => {
+        onValueChange('salaryRange', [rangeSliderConfig.format.from(values[0].toString()), rangeSliderConfig.format.from(values[1].toString())]);
     });
 
     return () => {
@@ -49,7 +53,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ value, onValueChange }) => {
         sliderRef.current.noUiSlider.destroy();
       }
     };
-  }, []);
+  }, [onValueChange]);
 
   return (
     <div className='border border-gray-300 rounded-lg p-4 bg-white'>

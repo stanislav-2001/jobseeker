@@ -1,6 +1,4 @@
-import { Label, Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
-import { GlobeAltIcon } from '@heroicons/react/24/outline'
-import { SocialIcon } from 'react-social-icons'
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import AboutTab from './AboutTab'
 import JobCard from '@/client/JobCard'
 import { JobCardModel } from '@/client/JobCardModel'
@@ -105,7 +103,7 @@ export default function CompanyTabs() {
             <TabPanel>
               <AboutTab />
             </TabPanel>
-            {categories.map(({ name, posts }) => (
+            {categories.map(({ name }) => (
               <TabPanel key={name} className="rounded-xl bg-white/5 p-3">
                 <div className="flex flex-col gap-4">
                   {mockJobs.map((job: JobCardModel) => (
