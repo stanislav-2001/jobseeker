@@ -5,6 +5,7 @@ A modern React/Next.js web portal designed to enhance the job search experience.
 
 > **Note:**  
 > This project (and its documentation) is a work in progress. Core website functionality is still under early stages of development.
+> Until backend is implemented, the UI shows example data.
 
 ## Key Features
 

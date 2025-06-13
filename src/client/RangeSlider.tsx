@@ -16,7 +16,7 @@ type NoUiSliderElement = HTMLDivElement & { noUiSlider?: noUiSliderAPI };
 const RangeSlider: React.FC<RangeSliderProps> = ({ value, onValueChange }) => {
     const sliderRef = useRef<NoUiSliderElement>(null);
     
-    const [sliderValue, setSliderValue] = useState<[string, string]>(`${Math.round(value[0])} €`, `${Math.round(value[1])} €`);
+    const [sliderValue, setSliderValue] = useState<[string, string]>([`${Math.round(value[0])} €`, `${Math.round(value[1])} €`]);
   useEffect(() => {
 
     if (!sliderRef.current) return;
