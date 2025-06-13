@@ -3,6 +3,9 @@
 
 A modern React/Next.js web portal designed to enhance the job search experience. Unlike typical job boards, this project introduces several unique, user-focused features aimed at improving usability and transparency.
 
+> **Note:**  
+> This project (and its documentation) is a work in progress. Core website functionality is still under early stages of development.
+
 ## Key Features
 
 - **Upper Salary Limit Filtering**  
@@ -17,10 +20,6 @@ A modern React/Next.js web portal designed to enhance the job search experience.
 - **Applicant Feedback**  
     After the selection process, applicants can voluntarily provide a numerical rating of their experience with the company. This feedback helps future applicants gauge the quality of the recruitment process.
 
----
-
-> **Note:**  
-> This project (and its documentation) is a work in progress. Core website functionality is still under development.
 
 ## Live Demo
 
