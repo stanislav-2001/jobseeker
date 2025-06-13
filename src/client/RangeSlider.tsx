@@ -16,7 +16,7 @@ type NoUiSliderElement = HTMLDivElement & { noUiSlider?: noUiSliderAPI };
 const RangeSlider: React.FC<RangeSliderProps> = ({ value, onValueChange }) => {
     const sliderRef = useRef<NoUiSliderElement>(null);
     
-    const [sliderValue, setSliderValue] = useState<[number, number]>(value);
+    const [sliderValue, setSliderValue] = useState<[string, string]>(`${Math.round(value[0])} €`, `${Math.round(value[1])} €`);
   useEffect(() => {
 
     if (!sliderRef.current) return;
@@ -39,9 +39,8 @@ const RangeSlider: React.FC<RangeSliderProps> = ({ value, onValueChange }) => {
     }
 
     //pre optimal performance, we should only update the slider if the value has changed
-
     sliderRef.current?.noUiSlider?.on('update', (values: (number | string)[]) => {
-        setSliderValue([Number(values[0]), Number(values[1])]);
+        setSliderValue([values[0] as string, values[1] as string]);
     });
 
     sliderRef.current.noUiSlider?.on('change', (values: (number | string)[]) => {

@@ -1,12 +1,30 @@
 
-# Job seeker
+# Job Seeker
 
-React webový portál na hľadanie práce. Nejde len o ďalší klon známych webov, ale snažil som sa implementovať niektoré malé, ale užitočné funkcie, ktoré som inde v takej podobe nevidel, pričom z UX hľadiska by boli žiadané.
+A modern React/Next.js web portal designed to enhance the job search experience. Unlike typical job boards, this project introduces several unique, user-focused features aimed at improving usability and transparency.
 
-Ide najmä o funkcie:
-- horné ohraničenie platu pri vyhľadávaní - pre menej skúsených uchádzačov pomôže odfiltrovať pre nich irelevantné ponuky, keďže hľadanie podľa praxe nezohľadňuje častú situáciu na iných weboch, keď zadávateľ nevypíše všetky polia vo formulároch
-- archivácia ponúk - profil spoločnosti obsahuje okrem aktívnych aj staré ponuky, čo môže dať uchádzačovi predstavu, ako často a aké ponuky firma vypisuje
-- kľúčové slová v ponuke - firmy občas používajú iné názvy pre tie isté pozície, čo sťažuje vyhľadávanie; zadaním aliasov do kľúčových slov sa lepšie zviditeľní ponuka
-- číselné hodnotenie - uchádzač je po skončení konania vyzvaný na dobrovoľné číselné ohodnotenie priebehu a organizácie výberového konania zo strany spoločnosti; slúži to ako spätná väzba pre budúcich uchádzačov
+## Key Features
 
-Projekt je momentálne v stave WIP, teda zatiaľ nie sú dokončené esenciálne funkcie webu. 
+- **Upper Salary Limit Filtering**  
+    Easily filter out job offers above a specified salary cap—especially helpful for less experienced applicants. This addresses the common issue where employers omit certain form fields, making traditional filtering unreliable.
+
+- **Offer Archiving**  
+    Company profiles display both active and archived job offers. This gives applicants insight into a company's hiring history and frequency, helping them make more informed decisions.
+
+- **Keyword Aliases**  
+    Job titles often vary between companies. By allowing companies to add keyword aliases, offers become more discoverable, ensuring applicants don't miss relevant positions due to naming differences.
+
+- **Applicant Feedback**  
+    After the selection process, applicants can voluntarily provide a numerical rating of their experience with the company. This feedback helps future applicants gauge the quality of the recruitment process.
+
+---
+
+> **Note:**  
+> This project (and its documentation) is a work in progress. Core website functionality is still under development.
+
+## Live Demo
+
+Check out the deployed site on Netlify:  
+[https://warm-kangaroo-17b794.netlify.app](https://warm-kangaroo-17b794.netlify.app)
+
+If the link does not work, it is disabled due to limited resources on Netlify.
